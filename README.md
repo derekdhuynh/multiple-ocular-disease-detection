@@ -1,11 +1,24 @@
 # Fundus Image-Based Diagnosis of Multiple Ocular Diseases Using Deep Convolutional Neural Networks
 Title subject to change.
+
 # TODO Backend
-* Inspect the rest of the viable datasets
-* See if annotations for validation images sourced from GC can be
+- [X] Inspect the rest of the viable datasets
+- [X] See if annotations for validation images sourced from GC can be
   acquired (might just go ahead with what we have)
-* Unify the datasets
-* Zip and upload unified dataset (able to train on Matthew's GPU/Colab/Derek's faster laptop.
-* Train prototype architechtures on one of the datasets (G1020 or ODIR or RFMiD) to shortlist viable strategies
-* Scale prototype architechture to the unified dataset
-* OPT - Evaluate on online judge platforms
+- [X] Unify the datasets
+- [X] Zip and upload unified dataset (able to train on Matthew's GPU/Colab/Derek's faster laptop).
+- [] Develop data preprocessing pipeline
+- [] Search for best architecture and hyperparameters, train for a few epochs on the dataset
+- [] Train final model
+- [] Evaluate (March 17th)
+- [] Touch up on plots and overall presentation (March 20th)
+
+# Main Labels
+Healthy
+Diabetic Retinopathy
+Glaucoma
+Age-related Macular Degeneration
+Myopia
+Cataracts
+Hypertension
+Other
