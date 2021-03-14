@@ -7,18 +7,19 @@ Title subject to change.
   acquired (might just go ahead with what we have)
 - [X] Unify the datasets
 - [X] Zip and upload unified dataset (able to train on Matthew's GPU/Colab/Derek's faster laptop).
-- [] Develop data preprocessing pipeline
-- [] Search for best architecture and hyperparameters, train for a few epochs on the dataset
-- [] Train final model
-- [] Evaluate (March 17th)
-- [] Touch up on plots and overall presentation (March 20th)
+- [ ] Develop data preprocessing pipeline
+- [ ] Search for best architecture and hyperparameters, train for a few epochs on the 
+  dataset
+- [ ] Train final model
+- [ ] Evaluate (March 17th)
+- [ ] Touch up on plots and overall presentation (March 20th)
 
 # Main Labels
-Healthy
-Diabetic Retinopathy
-Glaucoma
-Age-related Macular Degeneration
-Myopia
-Cataracts
-Hypertension
-Other
+* Healthy
+* Diabetic Retinopathy
+* Glaucoma
+* Age-related Macular Degeneration
+* Myopia
+* Cataracts
+* Hypertension
+* Other
