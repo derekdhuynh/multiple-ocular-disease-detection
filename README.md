@@ -7,7 +7,9 @@ Title subject to change.
   acquired (might just go ahead with what we have)
 - [X] Unify the datasets
 - [X] Zip and upload unified dataset (able to train on Matthew's GPU/Colab/Derek's faster laptop).
-- [ ] Develop data preprocessing pipeline
+- [X] Develop data preprocessing pipeline
+- [ ] Write data to Colab
+- [ ] Find best image size
 - [ ] Search for best architecture and hyperparameters, train for a few epochs on the 
   dataset
 - [ ] Train final model
@@ -23,3 +25,5 @@ Title subject to change.
 * Cataracts
 * Hypertension
 * Other
+
+
