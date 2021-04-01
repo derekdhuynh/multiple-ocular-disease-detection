@@ -71,3 +71,5 @@ data/
 data_zip/
 dataset/
 records*/
+models/
+unused_retina/
