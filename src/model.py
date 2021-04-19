@@ -347,7 +347,7 @@ def make_vgg_net():
     or not the placement of BN before or after ReLU has any large effect
     on performance.
 
-    From 
+    From Simonyan et al., (2017) https://arxiv.org/pdf/1409.1556.pdf
     """
     augmentation = keras.models.Sequential([
         keras.layers.experimental.preprocessing.RandomFlip('horizontal'),
