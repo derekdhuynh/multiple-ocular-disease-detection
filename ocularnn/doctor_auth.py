@@ -3,7 +3,7 @@ from . import db
 
 from werkzeug.security import generate_password_hash, check_password_hash
 
-bp = Blueprint(__name__, "doctor_auth", url_prefix="/doctor-auth")
+bp = Blueprint("doctor_auth", __name__, url_prefix="/doctor-auth")
 
 @bp.route("register", methods=["GET", "POST"])
 def register():
@@ -34,7 +34,7 @@ def register():
 
         print(error is None)
         if error is None:
-            return redirect(url_for("doctor_auth.login"))
+            return redirect(url_for("doctor-auth.login"))
         else:
             for err in error:
                 flash(err)
@@ -43,5 +43,35 @@ def register():
 
 @bp.route("login", methods=["GET", "POST"])
 def login():
+    if request.method == "POST":
+        # Get username and password from user
+        username = request.form["username"]
+        password = request.form["password"]
+        error = None
+
+        # Query db to get user info if exists
+        db = get_db()
+        cur = db.execute("SELECT (username, password) FROM user WHERE username=?", (username,))
+        db.commit()
+        user_info = cur.fetchone() # will be empty if username is incorrect
+
+        if not user_info:
+            error = "Username was not valid"
+
+        # and check if username and password are valid
+        authenticated = False
+        if user_info is not None:
+            authenticated = check_password_hash(user_info['password'], password)
+
+        # Redirect to the main menu/dashboard if authentification is successful
+        if not authenticated:
+            error = "Password was not valid"
+        else:
+            session['logged_in'] = authenticated 
+            g.user = username
+            return redirect(url_for('home'))
+
+        flash(error)
+
     return render_template("doctor_auth/login.html")
 

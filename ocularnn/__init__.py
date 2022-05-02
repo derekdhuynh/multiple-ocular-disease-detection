@@ -20,14 +20,12 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-
     # Registering database initialization
     from . import db 
     db.init_app(app)
 
     from . import doctor_auth
     app.register_blueprint(doctor_auth.bp)
-    print(dir(doctor_auth.bp))
 
     def test_template():
         return render_template('base.html')
