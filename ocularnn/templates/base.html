@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head> 
+  <title>EyeCanSee</title>
+</head>
+
+<header>
+  <nav>
+    <h1><a href="{{ url_for('home') }}">EyeCanSee</a></h1>
+    <ul class="nav-links">
+      <li><a href="{{ url_for('ocularnn.doctor_auth.login') }}">Log In</a>
+      <li><a href="{{ url_for('ocularnn.doctor_auth.register') }}">Register</a>
+    </ul>
+  </nav>
+</header>
+
+<body>
+  {% block content %}
+  {% endblock %}
+</body>

@@ -25,6 +25,33 @@ Our models were trained on an 80/10/10 train/validation/test split, with the tra
 * Seaborn
 * sci-kit learn
 
+# ocularnn Webapp Design
+This webapp is made with Flask and is meant as a proof of concept for a
+potential virtual solution for ocular disease detection. This would be used by
+medical professionals to help diagnose patients with certain ocular diseases
+
+* Frontend (probably use Bootstrap)
+    * Doctor login/registration page
+    * A prediction page for user upload and viewing their image, display
+      some stats about the image (std, mean, size).
+        * Maybe two centered flexboxes, one for uploaded and second for 
+        preprocessed image
+        * Also have the option of randomly selecting an image from the test
+        set for evaluation
+        * Left and right eyes, allow for only the input of one of them as well
+    * A dashboard for the "doctor's" patients
+    * A view for each patient describing the model's predicted confidence of 
+    each disease being present
+
+* Backend
+    * Add user authentication
+    * Doctor uploads image sees the preprocessed output, then a prediction is made
+    * SQLAlchemy DB
+        * Each doctor will have patients which in turn will have data about
+        them (ex. Name, age, gender, ID, their image data and their detected
+        diseases)
+    * Model serving predictions, display response to doctor and store the results
+    in the DB
 
 # References
 
