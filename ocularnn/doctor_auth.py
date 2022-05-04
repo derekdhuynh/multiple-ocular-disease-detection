@@ -1,12 +1,18 @@
-from flask import g, session, request, Blueprint, redirect, render_template
-from . import db 
+from flask import (
+    g, session, request, Blueprint, redirect, render_template, flash, url_for
+)
+from ocularnn.db import get_db
 
 from werkzeug.security import generate_password_hash, check_password_hash
 
 bp = Blueprint("doctor_auth", __name__, url_prefix="/doctor-auth")
 
-@bp.route("register", methods=["GET", "POST"])
+@bp.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    View for registering as a new user. An real-life implementation would use
+    the doctor's email and have a more rigourous verification process.
+    """
     if request.method == "POST":
         # Get username and password from form
         username = request.form['username']
@@ -20,7 +26,7 @@ def register():
             error.append("You must enter a valid password")
 
         # Store username and password hash into db
-        db = db.get_db()
+        db = get_db()
 
         # Except any errors, like if the username is not unique
         try:
@@ -30,19 +36,26 @@ def register():
             )
             db.commit()
         except db.IntegrityError:
-            error = "That username was already taken"
+            error.append("That username was already taken")
 
-        print(error is None)
-        if error is None:
-            return redirect(url_for("doctor-auth.login"))
+        if not error:
+            print("Registered successfully!")
+            return redirect(url_for("doctor_auth.login"))
         else:
+            print("Registration not successful!")
             for err in error:
                 flash(err)
 
     return render_template("doctor_auth/register.html")
 
-@bp.route("login", methods=["GET", "POST"])
+@bp.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    View for logging onto the site and accessing the doctor dashboard.
+
+    Once the user has been authenticated store their username in a session
+    so they can access restricted views.
+    """
     if request.method == "POST":
         # Get username and password from user
         username = request.form["username"]
@@ -51,10 +64,14 @@ def login():
 
         # Query db to get user info if exists
         db = get_db()
-        cur = db.execute("SELECT (username, password) FROM user WHERE username=?", (username,))
-        db.commit()
-        user_info = cur.fetchone() # will be empty if username is incorrect
 
+        # Will be an empty list if no results
+        user_info = db.execute(
+            "SELECT * FROM user WHERE username=?",
+            (username,)
+        ).fetchone()
+
+        # Throw error if no matches found
         if not user_info:
             error = "Username was not valid"
 
@@ -67,11 +84,21 @@ def login():
         if not authenticated:
             error = "Password was not valid"
         else:
-            session['logged_in'] = authenticated 
-            g.user = username
+            session['username'] = username
+            # Change to redirect to dashboard
             return redirect(url_for('home'))
 
         flash(error)
 
     return render_template("doctor_auth/login.html")
 
+
+@bp.route("/logout", methods=["GET"])
+def logout():
+    """
+    Logging the current user out
+    """
+    session.clear()
+    return redirect(url_for('home'))
+
+"""TODO: Add wrapper which locks views to only authenticated users"""

@@ -7,13 +7,29 @@
   <nav>
     <h1><a href="{{ url_for('home') }}">EyeCanSee</a></h1>
     <ul class="nav-links">
-      <li><a href="{{ url_for('doctor_auth.login') }}">Log In</a>
-      <li><a href="{{ url_for('doctor_auth.register') }}">Register</a>
+      {% if session.get("username") == None %}
+        <li><a href="{{ url_for('doctor_auth.login') }}">Log In</a></li>
+        <li><a href="{{ url_for('doctor_auth.register') }}">Register</a></li>
+      {% else %}
+        <li><a href="{{ url_for('doctor_auth.logout') }}">Log Out</a></li>
+      {% endif %}
     </ul>
   </nav>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul>
+      {% for message in messages %}
+        <li class="flashes">{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
 </header>
 
 <body>
+  {% if session.get('username') != None %}
+  <h1> Congrats {{ session.get('username') }}! You're signed in!</h1>
+  {% endif %}
   {% block content %}
   {% endblock %}
 </body>

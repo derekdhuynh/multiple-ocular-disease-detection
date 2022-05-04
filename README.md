@@ -53,6 +53,12 @@ medical professionals to help diagnose patients with certain ocular diseases
     * Model serving predictions, display response to doctor and store the results
     in the DB
 
+## TODO
+- [ ] Add requires_auth decorator
+- [ ] Create a dashboard view and a CRUD cycle for adding patients to dash
+- [ ] Figure out how to upload photos and store them server-side
+- [ ] Write backend code for model predictions
+
 # References
 
 Arjun, S., Saluja, K., & Biswas, P. (2021, January 04). Analysing ocular parameters for web browsing and graph visualization. Retrieved March 4, 2021, from https://arxiv.org/abs/2101.00794
