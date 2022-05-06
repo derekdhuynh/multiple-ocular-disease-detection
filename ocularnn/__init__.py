@@ -24,8 +24,11 @@ def create_app(test_config=None):
     from . import db 
     db.init_app(app)
 
-    from . import doctor_auth
-    app.register_blueprint(doctor_auth.bp)
+    from . import auth
+    app.register_blueprint(auth.bp)
+
+    from . import dashboard
+    app.register_blueprint(dashboard.bp)
 
     def test_template():
         return render_template('base.html')
