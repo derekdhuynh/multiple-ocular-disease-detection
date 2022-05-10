@@ -54,8 +54,10 @@ medical professionals to help diagnose patients with certain ocular diseases
     in the DB
 
 ## TODO
-- [ ] Add requires_auth decorator
+- [X] Add requires_auth decorator
 - [ ] Create a dashboard view and a CRUD cycle for adding patients to dash
+- [ ] Add functionality for UUID for purposes of patient urls
+- [ ] Add a custom 403 html page
 - [ ] Figure out how to upload photos and store them server-side
 - [ ] Write backend code for model predictions
 

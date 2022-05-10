@@ -22,7 +22,15 @@ def get_all_patients():
     patients = db.execute("SELECT * FROM patients WHERE doctor=?", (session['doctor'])).fetchall()
     return patients
 
-@requires_auth
 @bp.route("/<username>")
+@requires_auth
 def dashboard(username):
     return render_template("dashboard/dashboard.html")
+
+@bp.route("/<username>/<patient_id>")
+def patient(username, patient_id):
+    """
+    View of a patient within a doctor's database
+    """
+    return
+    

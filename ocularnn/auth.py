@@ -1,9 +1,11 @@
 from flask import (
-    g, session, request, Blueprint, redirect, render_template, flash, url_for
+    g, session, request, Blueprint, redirect, render_template, flash, url_for, abort
 )
 from ocularnn.db import get_db
 
 from werkzeug.security import generate_password_hash, check_password_hash
+
+from functools import wraps
 
 bp = Blueprint("auth", __name__, url_prefix="/auth")
 
@@ -39,10 +41,8 @@ def register():
             error.append("That username was already taken")
 
         if not error:
-            print("Registered successfully!")
             return redirect(url_for("auth.login"))
         else:
-            print("Registration not successful!")
             for err in error:
                 flash(err)
 
@@ -114,9 +114,23 @@ def requires_auth(view):
         view: the view function which the decorator is supposed to lock for
             unauthenticated users.
     """
-    def check_auth():
+    @wraps(view)
+    def check_auth(*args, **kwargs):
+        """
+        Verifies if the user is logged in and if the view was passed a username
+        that it matches the current username
+        """
         username = session.get('username')
-        print(username, flush=True)
-        if username == None:
+
+        # Potential username variable in view URL
+        username_url = kwargs.get('username')
+
+        if username == None: 
             return redirect(url_for('auth.login'))
+
+        # If username passed to view does equal the session username, throw 403
+        if username_url is not None and username_url != username:
+            return abort(403)
+
+        return view(*args, **kwargs)
     return check_auth
