@@ -58,8 +58,9 @@ def login():
     """
     # For when the redirect to the dashboard fails and the user has to reload 
     # the page, no need to return to the login page
-    if session.get('username') is not None:
-        return redirect(url_for('dashboard.dashboard'))
+    cached_username = session.get('username')
+    if cached_username is not None:
+        return redirect(url_for('dashboard.dashboard', username=cached_username))
 
     if request.method == "POST":
         # Get username and password from user

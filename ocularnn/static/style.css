@@ -1,0 +1,54 @@
+/*
+.home {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  text-decoration: none;
+}
+*/
+
+nav {
+  display: flex;
+  align-items: center;
+  margin: 0.5em;
+}
+
+.side-nav {
+  margin-left: auto;
+  display: flex;
+  text-decoration: none;
+  list-style-type: none;
+  column-gap: 20px;
+}
+
+.home {
+  font-weight: 900;
+}
+
+.home:hover{
+  background-color: lightgrey;
+}
+
+a {
+  font-family: 'Inter', sans-serif;
+  text-decoration: none;
+  colour: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.nav-link {
+  flex: 1;
+  margin: auto;
+  font-weight: 400;
+  display: block;
+}
+
+.nav-link:hover {
+  background-color: lightgrey;
+}
