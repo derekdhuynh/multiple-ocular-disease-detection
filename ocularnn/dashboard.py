@@ -18,15 +18,17 @@ from ocularnn.auth import requires_auth
 bp = Blueprint("dashboard", __name__, url_prefix="/dashboard")
 
 def get_all_patients():
+    """
+    Given a logged in user, query all the patients associated with them
+    """
     db = get_db()
     patients = db.execute("SELECT * FROM patients WHERE doctor=?", (session['username'],)).fetchall()
     return patients
 
-@bp.route("/<username>")
+@bp.route("/<username>", methods=['GET', 'POST'])
 @requires_auth
 def dashboard(username):
     patients = get_all_patients()
-    print(patients)
     return render_template("dashboard/dashboard.html")
 
 @bp.route("/<username>/<patient_id>")

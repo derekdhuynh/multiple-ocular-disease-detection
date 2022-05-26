@@ -1,4 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>This is the dashboard</h1>
+  <div class="patient-upload">
+    <input type="file" id="retina" name="retina" accept="image/png, image/jpeg" hidden>
+    <label class='upload-button' for="retinal">Upload Images</label>
+  </div>
 {% endblock %}

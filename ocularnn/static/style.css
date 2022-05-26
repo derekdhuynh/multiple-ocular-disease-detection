@@ -1,10 +1,8 @@
-/*
-.home {
+body {
   font-family: 'Inter', sans-serif;
-  font-weight: 900;
+  font-weight: 400;
   text-decoration: none;
 }
-*/
 
 nav {
   display: flex;
@@ -17,7 +15,7 @@ nav {
   display: flex;
   text-decoration: none;
   list-style-type: none;
-  column-gap: 20px;
+  column-gap: 15px;
 }
 
 .home {
@@ -51,4 +49,78 @@ a:hover {
 
 .nav-link:hover {
   background-color: lightgrey;
+}
+
+/* Login */
+.auth-container {
+  display: flex;
+  justify-content: center;
+}
+
+.auth {
+  border-style: solid;
+  border-color: #DCDCDC;
+  border-radius: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  padding: 0.75rem;
+}
+
+.auth-field {
+  display: block;
+  margin: auto;
+  padding: 5px;
+}
+
+.submit {
+  padding: 15px;
+  font-weight: 900;
+  font-size: 1em;
+  color: white;
+  border: None;
+  background: linear-gradient(transparent,rgba(0, 0, 0, 0.15)) top/100% 800%;
+  background-color: #1E90FF;
+  cursor: pointer;
+  margin: 0.5em;
+  border-radius: 0.5rem;
+  transition: transform 0.5s;
+}
+
+.submit:hover {
+  background-position:bottom;
+}
+
+.submit:active {
+  transform: scale(1.2);
+}
+
+input[type="text"], input[type='password'] {
+ font-family: 'Inter', sans-serif;
+}
+
+/* Dashboard */
+.patient-upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: solid;
+  border-weight: 1px;
+  border-radius: 0.5rem;
+
+}
+
+.upload-button {
+  background-color: indigo;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }

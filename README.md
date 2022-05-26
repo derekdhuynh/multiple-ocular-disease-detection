@@ -55,6 +55,7 @@ medical professionals to help diagnose patients with certain ocular diseases
 
 ## TODO
 - [X] Add requires_auth decorator
+- [X] Styling for login and register form
 - [ ] Create a dashboard view and a CRUD cycle for adding patients to dash
 - [ ] Add functionality for UUID for purposes of patient urls
 - [ ] Add a custom 403 html page
