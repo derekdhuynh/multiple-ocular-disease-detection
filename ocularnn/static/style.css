@@ -108,10 +108,11 @@ input[type="text"], input[type='password'] {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   border: solid;
   border-weight: 1px;
   border-radius: 0.5rem;
+  padding: 1em;
 
 }
 
@@ -123,4 +124,25 @@ input[type="text"], input[type='password'] {
   cursor: pointer;
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.new-patient-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-patient {
+  display: block;
+  width:100%;
+  padding:0.5rem;
+  background-color: indigo;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  border-color: transparent;
+  font-family: 'Inter' sans-serif;
+  font-weight: bold;
+  font-size: 1em;
 }

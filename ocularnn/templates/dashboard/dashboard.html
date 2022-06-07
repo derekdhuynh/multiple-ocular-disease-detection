@@ -1,7 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
   <div class="patient-upload">
-    <input type="file" id="retina" name="retina" accept="image/png, image/jpeg" hidden>
-    <label class='upload-button' for="retinal">Upload Images</label>
+    <div class='upload-button-wrapper'>
+      <label class='upload-button' for="retina">Upload Images</label>
+      <input type="file" id="retina" name="retina" accept="image/png, image/jpeg" hidden/>
+    </div>
+    <div class='upload-button-wrapper'>
+      <label class='upload-button' for="retina">Upload Images</label>
+      <input type="file" id="retina" name="retina" accept="image/png, image/jpeg" hidden/>
+    </div>
   </div>
+  <div class='new-patient-wrapper'>
+    <button id='addPatient' class='new-patient' type='button'>Add New Patient</button>
+  </div>
+  <p id='hello' hidden>Hello</p>
+  <!--<script type='text/javascript' src="{{ url_for("static", filename="dashboard.js") }}"></script> -->
+<script type='text/javascript'>
+        const btn = document.getElementById('addPatient');
+        const modal = document.getElementById('hello');
+
+        function showHideModal(isHidden) {
+          if (isHidden) {
+            modal.hidden = false;
+          }
+          if (!isHidden) {
+            modal.hidden = true;
+          }
+          console.log(isHidden);
+        }
+
+        btn.onclick = function() {
+          showHideModal(modal.hidden);
+        }
+
+        window.onclick = function(event) {
+          if (event.target != modal && !modal.hidden) {
+            showHideModal(modal.hidden);
+          }
+        }
+</script>
 {% endblock %}
