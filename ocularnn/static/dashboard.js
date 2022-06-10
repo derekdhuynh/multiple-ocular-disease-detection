@@ -1,10 +1,16 @@
 const btn = document.getElementById('addPatient');
 const modal = document.getElementById('hello');
 
-btn.onClick = function() {
-  modal.hidden = false;
-}
+function addShowHideModal() {
+  btn.onclick = function(event) {
+    modal.hidden = false;
+    console.log("Modal shown");
+  }
 
-window.onClick = function() {
-  modal.hidden = true;
+  window.onclick = function(event) {
+    if (event.target != modal && event.target != btn && modal.hidden == false) {
+      modal.hidden = true;
+      console.log("Modal hidden");
+    }
+  }
 }

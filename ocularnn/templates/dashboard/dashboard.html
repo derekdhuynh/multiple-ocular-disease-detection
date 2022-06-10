@@ -14,29 +14,25 @@
     <button id='addPatient' class='new-patient' type='button'>Add New Patient</button>
   </div>
   <p id='hello' hidden>Hello</p>
-  <!--<script type='text/javascript' src="{{ url_for("static", filename="dashboard.js") }}"></script> -->
-<script type='text/javascript'>
+  <script type='text/javascript' src="{{ url_for("static", filename="dashboard.js") }}"></script>
+  <script type='text/javascript'>
+    addShowHideModal();
+  </script>
+<!-- <script type='text/javascript'>
         const btn = document.getElementById('addPatient');
         const modal = document.getElementById('hello');
 
-        function showHideModal(isHidden) {
-          if (isHidden) {
-            modal.hidden = false;
-          }
-          if (!isHidden) {
-            modal.hidden = true;
-          }
-          console.log(isHidden);
-        }
-
-        btn.onclick = function() {
-          showHideModal(modal.hidden);
+        btn.onclick = function(event) {
+          modal.hidden = false;
+          console.log("Modal shown");
         }
 
         window.onclick = function(event) {
-          if (event.target != modal && !modal.hidden) {
-            showHideModal(modal.hidden);
+          if (event.target != modal && event.target != btn && modal.hidden == false) {
+            modal.hidden = true;
+            console.log("Modal hidden");
           }
         }
 </script>
+-->
 {% endblock %}

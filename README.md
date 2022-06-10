@@ -56,11 +56,13 @@ medical professionals to help diagnose patients with certain ocular diseases
 ## TODO
 - [X] Add requires_auth decorator
 - [X] Styling for login and register form
+- [ ] Modal for adding patients to dashboard
 - [ ] Create a dashboard view and a CRUD cycle for adding patients to dash
 - [ ] Add functionality for UUID for purposes of patient urls
 - [ ] Add a custom 403 html page
 - [ ] Figure out how to upload photos and store them server-side
 - [ ] Write backend code for model predictions
+- [ ] Styling for flash messages
 
 # References
 
