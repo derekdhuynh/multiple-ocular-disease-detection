@@ -47,9 +47,6 @@
 </header>
 
 <body>
-  {% if session.get('username') != None %}
-  <h1> Congrats {{ session.get('username') }}! You're signed in!</h1>
-  {% endif %}
   {% block content %}
   {% endblock %}
 </body>

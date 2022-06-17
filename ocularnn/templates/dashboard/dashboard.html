@@ -1,5 +1,18 @@
+<div id='patientModal' class='modal'>
+  <div class='modal-wrapper'>
+    <div id='patientModalContent' class='modal-content'>
+      <div id='patientModalHeader' class='modal-header'> 
+      <h2 class='modal-title'>Enter Patient Information</h1>
+      <div class='modal-close-wrapper'>
+        <span id='patientModalClose' class='modal-close'>X</span>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% extends "base.html" %}
 {% block content %}
+<!--
   <div class="patient-upload">
     <div class='upload-button-wrapper'>
       <label class='upload-button' for="retina">Upload Images</label>
@@ -10,29 +23,12 @@
       <input type="file" id="retina" name="retina" accept="image/png, image/jpeg" hidden/>
     </div>
   </div>
+  -->
   <div class='new-patient-wrapper'>
     <button id='addPatient' class='new-patient' type='button'>Add New Patient</button>
   </div>
-  <div id='patientModal' class='modal'>Hello</div>
   <script type='text/javascript' src="{{ url_for("static", filename="dashboard.js") }}"></script>
   <script type='text/javascript'>
     addShowHideModal();
   </script>
-<!-- <script type='text/javascript'>
-        const btn = document.getElementById('addPatient');
-        const modal = document.getElementById('hello');
-
-        btn.onclick = function(event) {
-          modal.hidden = false;
-          console.log("Modal shown");
-        }
-
-        window.onclick = function(event) {
-          if (event.target != modal && event.target != btn && modal.hidden == false) {
-            modal.hidden = true;
-            console.log("Modal hidden");
-          }
-        }
-</script>
--->
 {% endblock %}

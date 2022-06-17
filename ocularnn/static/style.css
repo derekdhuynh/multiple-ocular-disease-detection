@@ -151,11 +151,46 @@ input[type="text"], input[type='password'] {
   display: none; /* Will be hidden by default, shows when clicking on "add patient" button */
   position: fixed;
   z-index: 1; /* Order is before everything else, sits on top of all other elements */
+  /* The following allows the backdrop to cover the entire screen */
   left: 0;
   right: 0;
+  top: 0;
   width: 100%;
   height: 100%;
   overflow: auto; /* Gives scroll to modal, away from body */
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  display: flex;
+  padding: 1em;
+  background: white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  margin: 0.5em;
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  column-gap: 100px;
+  flex-wrap: nowrap;
+}
+
+.modal-title {
+}
+
+.modal-close-wrapper {
+  color: white;
+  background: black;
+  padding: 0.5em;
+  border-radius: 100%
 }
