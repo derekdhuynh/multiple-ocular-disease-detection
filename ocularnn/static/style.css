@@ -1,7 +1,14 @@
+html {
+  height: 100%
+}
+
 body {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   text-decoration: none;
+  top: 0;
+  left: 0;
+  height: 100%;
 }
 
 nav {
@@ -170,6 +177,7 @@ input[type="text"], input[type='password'] {
 
 .modal-content {
   display: flex;
+  flex-direction: column;
   padding: 1em;
   background: white;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
@@ -188,9 +196,33 @@ input[type="text"], input[type='password'] {
 .modal-title {
 }
 
-.modal-close-wrapper {
-  color: white;
-  background: black;
+.modal-close {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  font-size: 1.25em;
+  line-height: 0.5em;
+  height: 0.75em; 
+  width: 0.75em;
   padding: 0.5em;
-  border-radius: 100%
+  background: red;
+  font-weight: 900;
+  color: white;
+  cursor: pointer;
+  border-radius: 50%
+}
+
+/* Styling for the patient form */
+.patient-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Styling for input fields and titles in the form */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
 }

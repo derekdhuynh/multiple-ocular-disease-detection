@@ -1,29 +1,50 @@
+<!-- Creating a modal for entering patient information -->
 <div id='patientModal' class='modal'>
-  <div class='modal-wrapper'>
+  <div id='patientModalWrapper' class='modal-wrapper'>
     <div id='patientModalContent' class='modal-content'>
-      <div id='patientModalHeader' class='modal-header'> 
-      <h2 class='modal-title'>Enter Patient Information</h1>
-      <div class='modal-close-wrapper'>
-        <span id='patientModalClose' class='modal-close'>X</span>
-       </div>
+      <div id='patientModalHeader' class='modal-header'>
+        <h2 class='modal-title'>Enter Patient Information</h2>
+        <div id='patientModalClose' class='modal-close'>&times;</div>
+      </div>
+      <div class='patient-form' id='patientForm'>
+        <div class='form-group'>
+          <label for='patientName'>Patient Name</label>
+          <input type="text" id='patientName' required='true'>
+        </div>
+        <div class='form-group'>
+          <label for='patientAge'>Patient Age</label>
+          <input type="number" id='patientAge' required='true'>
+        </div>
+        <div class='form-group'>
+          <label for='patientGender'> Patient Gender</label>
+          <select name='gender' id='patientGender'>
+            <option value='male'>Male</option>
+            <option value='female'>Female</option>
+            <option value='other'>Other</option>
+          </select>
+        </div>
+        <div class='form-group'>
+          <label for='patientNotes'>Patient Notes</label>
+          <textarea id='patientNotes' name='patientNotes' rows=5></textarea>
+        </div>
+        <div class='form-group'>
+          <div class="patient-upload">
+            <div class='upload-button-wrapper'>
+              <label class='upload-button' for="retina">Upload Images</label>
+              <input type="file" id="retina" name="retina" accept="image/png, image/jpeg" hidden/>
+            </div>
+            <div class='upload-button-wrapper'>
+              <label class='upload-button' for="retina">Upload Images</label>
+              <input type="file" id="retina" name="retina" accept="image/png, image/jpeg" hidden/>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 {% extends "base.html" %}
 {% block content %}
-<!--
-  <div class="patient-upload">
-    <div class='upload-button-wrapper'>
-      <label class='upload-button' for="retina">Upload Images</label>
-      <input type="file" id="retina" name="retina" accept="image/png, image/jpeg" hidden/>
-    </div>
-    <div class='upload-button-wrapper'>
-      <label class='upload-button' for="retina">Upload Images</label>
-      <input type="file" id="retina" name="retina" accept="image/png, image/jpeg" hidden/>
-    </div>
-  </div>
-  -->
   <div class='new-patient-wrapper'>
     <button id='addPatient' class='new-patient' type='button'>Add New Patient</button>
   </div>

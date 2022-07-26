@@ -17,6 +17,10 @@ CREATE TABLE patients (
     doctor TEXT NOT NULL,
     name TEXT NOT NULL,
     gender TEXT NOT NULL,
+    age INTEGER NOT NULL,
+    lefteyepath TEXT,
+    righteyepath TEXT,
+    notes TEXT,
     FOREIGN KEY (doctor) REFERENCES user (username)
 );
 

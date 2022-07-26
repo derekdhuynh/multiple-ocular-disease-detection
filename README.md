@@ -57,12 +57,24 @@ medical professionals to help diagnose patients with certain ocular diseases
 - [X] Add requires_auth decorator
 - [X] Styling for login and register form
 - [ ] Modal for adding patients to dashboard
-- [ ] Create a dashboard view and a CRUD cycle for adding patients to dash
-- [ ] Add functionality for UUID for purposes of patient urls
+    - [ ] Add dropbox for adding images, left and right eyes
+    - [ ] Add ability to preview images that were just uploaded
+    - [ ] Make sure to add support for weird image types like .tiff
+    - [ ] Figure out how to upload photos and store them server-side
+        - Most likely scenario is just to store the images on-disk, and have
+        a sql database hold the paths to each image
+- [ ] Create a dashboard view and a CRUD cycle for the patients of the current user
+- [ ] Add functionality for UUID for patient urls
 - [ ] Add a custom 403 html page
-- [ ] Figure out how to upload photos and store them server-side
 - [ ] Write backend code for model predictions
 - [ ] Styling for flash messages
+- [ ] Create a better model
+    - Search for more retina image datasets
+    - Make the image preprocessing better
+        - Use pytorch instead for learning purposes
+    - Unsupervised VAE approach, use reconstruction error as an anomaly score
+    - Vision Transformers, maybe one that uses likelihood as a score. Train
+    using self-supervision
 
 # References
 
