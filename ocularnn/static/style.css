@@ -115,11 +115,13 @@ input[type="text"], input[type='password'] {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   border: solid;
-  border-weight: 1px;
+  border-color: rgb(118, 118, 118);	/* grey */
+  border-width: 2px;
   border-radius: 0.5rem;
   padding: 1em;
+  flex-grow: 1;
 
 }
 
@@ -131,6 +133,14 @@ input[type="text"], input[type='password'] {
   cursor: pointer;
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.patient-upload-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
 .new-patient-wrapper {
@@ -189,7 +199,7 @@ input[type="text"], input[type='password'] {
   flex-direction: row;
   align-items: center;
   justify-items: center;
-  column-gap: 100px;
+  column-gap: 200px;
   flex-wrap: nowrap;
 }
 
@@ -224,5 +234,10 @@ input[type="text"], input[type='password'] {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
 
+#drop_zone {
+  border: 5px solid blue;
+  width:  400px;
+  height: 200px;
 }

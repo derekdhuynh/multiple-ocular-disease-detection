@@ -30,6 +30,9 @@ def create_app(test_config=None):
     from . import dashboard
     app.register_blueprint(dashboard.bp)
 
+    from . import test
+    app.register_blueprint(test.bp)
+
     def test_template():
         return render_template('base.html')
 
